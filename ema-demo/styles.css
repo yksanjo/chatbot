@@ -1,0 +1,67 @@
+:root{
+  --bg: #faf6f1;
+  --text: #2f2a24;
+  --muted: #6b5b4b;
+  --wood-1: #e8cfa6;
+  --wood-2: #d8b787;
+  --beam: #9c6f42;
+  --rope: #e6c8a8;
+  --rope-strand: #d7b18a;
+  --accent: #9b5de5;
+}
+
+*{ box-sizing: border-box }
+html,body{ height:100% }
+body{
+  margin:0; font-family: 'Noto Sans JP', system-ui, -apple-system, Segoe UI, Roboto, 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+  background: linear-gradient(180deg, var(--bg) 0%, #fff 100%);
+  color: var(--text);
+}
+
+.container{ max-width: 1000px; margin: 0 auto; padding: 0 16px }
+
+.site-header{ padding: 20px 0 }
+.title{ margin:0; font-size: 28px }
+.subtitle{ margin: 4px 0 0 0; color: var(--muted) }
+
+.controls{ margin: 12px 0 8px }
+.control-row{ display:flex; align-items:center; gap:12px; flex-wrap: wrap }
+label{ font-size:14px; color: var(--muted) }
+select{ padding:6px 8px; border:1px solid #ddd; border-radius:8px; background:#fff }
+.btn-primary{ padding:8px 14px; background:#2b6cb0; color:#fff; border:none; border-radius:10px; cursor:pointer }
+.btn-primary:hover{ background:#2c5282 }
+
+.shrine{ position: relative; margin: 20px auto 60px; border-radius: 16px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.06); background: radial-gradient(1200px 300px at 50% 120%, #eef5ff, #ffffff 60%); }
+.beam{ height: 32px; background: var(--beam); box-shadow: inset 0 -3px 0 rgba(0,0,0,.15) }
+.rope{ height: 10px; background: repeating-linear-gradient(90deg, var(--rope-strand) 0 10px, var(--rope) 10px 20px); box-shadow: 0 1px 0 rgba(0,0,0,.08) inset; margin: 24px 0 34px 0 }
+.hooks{ position: relative; height: 12px }
+.hook{ position: absolute; width: 6px; height: 18px; background: #8b5a2b; top: -8px; border-radius: 2px }
+
+.wall{ position: relative; height: 440px; overflow: hidden; }
+
+/* Ema container and animation */
+.ema-wrap{ position: absolute; width: 180px; height: 140px; transform-origin: 50% 8%; filter: drop-shadow(0 6px 8px rgba(0,0,0,.12)); }
+.ema-wrap.drop{ animation: swing-in 2.2s ease-out 1; }
+.ema-wrap.idle{ animation: idle 6s 2.2s ease-in-out infinite }
+
+@keyframes swing-in{
+  0%{ transform: translateY(-90px) rotate(-24deg); opacity: 0 }
+  25%{ opacity: 1 }
+  60%{ transform: translateY(0) rotate(12deg) }
+  85%{ transform: rotate(-6deg) }
+  100%{ transform: rotate(0) }
+}
+@keyframes idle{
+  0%{ transform: rotate(0) }
+  50%{ transform: rotate(1.2deg) }
+  100%{ transform: rotate(0) }
+}
+
+/* Utility */
+.sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0 }
+.site-footer{ color: var(--muted); padding-bottom: 40px }
+
+@media (prefers-reduced-motion: reduce){
+  .ema-wrap{ animation: none !important }
+}
+
