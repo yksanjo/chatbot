@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>絵馬掛け所 Demo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header" role="banner">
+      <div class="container">
+        <h1 class="title">Startup 絵馬掛け所</h1>
+        <p class="subtitle">匿名の願い札をかけて、軽くゆらぐデモ</p>
+      </div>
+    </header>
+
+    <main class="container" role="main">
+      <section class="controls" aria-labelledby="controls-heading">
+        <h2 id="controls-heading" class="sr-only">絵馬作成</h2>
+        <div class="control-row">
+          <label for="role">役割</label>
+          <select id="role" name="role">
+            <option value="Founder">Founder</option>
+            <option value="Investor">Investor</option>
+            <option value="Builder">Builder</option>
+          </select>
+          <label for="ribbon">リボン色</label>
+          <select id="ribbon" name="ribbon">
+            <option value="#C43A3A">赤</option>
+            <option value="#1F7A8C">青</option>
+            <option value="#8C1F5A">紫</option>
+            <option value="#2F855A">緑</option>
+            <option value="#D97706">橙</option>
+          </select>
+          <button id="hangBtn" class="btn-primary">絵馬をかける</button>
+        </div>
+      </section>
+
+      <section class="shrine" aria-label="絵馬殿">
+        <div class="beam" aria-hidden="true"></div>
+        <div class="rope" aria-hidden="true"></div>
+        <div id="hooks" class="hooks" aria-hidden="true"></div>
+        <div id="wall" class="wall" aria-live="polite" aria-atomic="true"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer container">
+      <small>Motion respects 設定: <code>prefers-reduced-motion</code>. 音なし。</small>
+    </footer>
+
+    <script src="./script.js" defer></script>
+  </body>
+  </html>
+
